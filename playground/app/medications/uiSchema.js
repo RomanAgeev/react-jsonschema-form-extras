@@ -78,7 +78,7 @@ export default {
               editorFieldProps : {  
                 min : 0.001,
                 max: 9999999999,
-                style : { display: 'inline',width: '100%'}
+                style : { display: 'inline',width: '100%' }
               }
             }
           },
