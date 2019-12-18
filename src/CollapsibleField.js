@@ -230,8 +230,9 @@ class CollapsibleField extends Component {
 
   render() {
     let {
-      schema: { title },
+      schema: { title, titleField },
       uiSchema,
+      formData,
       registry: { fields },
       idSchema: { $id } = {},
       name,
@@ -242,6 +243,13 @@ class CollapsibleField extends Component {
     let CollapseElement = fields[field];
     // uischema retains the value form the state
     uiSchema.collapse.collapsed = this.state.collapsed;
+
+    if (titleField) {
+      const titleFromField = formData[titleField];
+      if (titleFromField) {
+        title = titleFromField;
+      }
+    }
 
     title = uiSchema["ui:title"] ? uiSchema["ui:title"] : title ? title : name;
     let customizedId = collapsed ? $id : undefined;
